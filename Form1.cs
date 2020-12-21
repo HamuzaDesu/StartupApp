@@ -13,6 +13,8 @@ namespace StartupApp
 {
     public partial class Form1 : Form
     {
+        Control[] panels = new Control[4];
+
         public Form1()
         {
             InitializeComponent();
@@ -22,7 +24,7 @@ namespace StartupApp
         {
             this.BackColor = Color.White;
 
-            this.TopMost = true;
+            //this.TopMost = true;
             this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
 
@@ -36,22 +38,38 @@ namespace StartupApp
             try
             {
                 string imageFileName = ConfigurationManager.AppSettings[0];
+                //MessageBox.Show(imageFileName);
                 Bitmap bgImage = new Bitmap(imageFileName);
                 this.BackgroundImage = bgImage;
+                this.BackgroundImageLayout = ImageLayout.Stretch;
+        
             }
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
+            panels[0] = studyPanel;
+            panels[1] = chillPanel;
+            panels[2] = codePanel;
+            panels[3] = gamePanel;
+
+            foreach (Panel panel in panels)
+            {
+                panel.Visible = false;
+                panel.BackColor = Color.White;
+            }
 
             //// TRANSPARENT BG
             //this.BackColor = Color.LimeGreen;
-            //this.TransparencyKey = Color.LimeGreen;
+            //this.TransparencyKey = Color.LimeGreen;            
         }
 
         private void settingsButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Nom");
+            MessageBox.Show("Settings Box Here");
         }
-
+        
         private void closeButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -60,34 +78,45 @@ namespace StartupApp
 
         private void backgroundImageButton_Click(object sender, EventArgs e)
         {
-            using(OpenFileDialog dialogue = new OpenFileDialog())
-            {
-                dialogue.Title = "Choose Background Image";
-                dialogue.Filter = "Image Files(*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF|All files (*.*)|*.*";
-
-                if(dialogue.ShowDialog() == DialogResult.OK)
-                {
-                    Bitmap image = new Bitmap(dialogue.FileName);
-
-                    // add image to app.config
-                    Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-                    config.AppSettings.Settings.Add("bgImage", dialogue.FileName);
-                    config.Save(ConfigurationSaveMode.Modified);
-
-                    // Set BG image
-                    this.BackgroundImage = image;
-                    this.BackgroundImageLayout = ImageLayout.Stretch;
-                    //Form1.ActiveForm.BackgroundImage = image;
-                    //Form1.ActiveForm.BackgroundImageLayout = ImageLayout.Stretch;
-
-                }
-            }
+            BackgroundImageForm form2 = new BackgroundImageForm();
+            form2.Form1 = this;
+            form2.ShowDialog();
         }
 
         private void studyButton_Click(object sender, EventArgs e)
         {
-            //mainPanel.Visible = false;
-            //studyPanel.Visible = true;
+            foreach (Panel panel in panels)
+            {
+                panel.Visible = false;
+            }
+            studyPanel.Visible = true;
+        }
+
+        private void chillButton_Click(object sender, EventArgs e)
+        {
+            foreach(Panel panel in panels)
+            {
+                panel.Visible = false;
+            }
+            chillPanel.Visible = true;
+        }
+
+        private void codeButton_Click(object sender, EventArgs e)
+        {
+            foreach (Panel panel in panels)
+            {
+                panel.Visible = false;
+            }
+            codePanel.Visible = true;
+        }
+
+        private void gameButton_Click(object sender, EventArgs e)
+        {
+            foreach (Panel panel in panels)
+            {
+                panel.Visible = false;
+            }
+            gamePanel.Visible = true;
         }
     }
 }

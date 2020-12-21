@@ -8,3 +8,4 @@ C:\Users\rafih\source\repos\StartupApp\StartupApp\obj\Debug\StartupApp.csproj.Ge
 C:\Users\rafih\source\repos\StartupApp\StartupApp\obj\Debug\StartupApp.csproj.CoreCompileInputs.cache
 C:\Users\rafih\source\repos\StartupApp\StartupApp\obj\Debug\StartupApp.exe
 C:\Users\rafih\source\repos\StartupApp\StartupApp\obj\Debug\StartupApp.pdb
+C:\Users\rafih\source\repos\StartupApp\StartupApp\obj\Debug\StartupApp.BackgroundImageForm.resources

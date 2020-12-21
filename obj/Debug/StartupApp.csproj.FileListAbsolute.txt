@@ -1,0 +1,10 @@
+C:\Users\rafih\source\repos\StartupApp\StartupApp\bin\Debug\StartupApp.exe.config
+C:\Users\rafih\source\repos\StartupApp\StartupApp\bin\Debug\StartupApp.exe
+C:\Users\rafih\source\repos\StartupApp\StartupApp\bin\Debug\StartupApp.pdb
+C:\Users\rafih\source\repos\StartupApp\StartupApp\obj\Debug\StartupApp.csprojAssemblyReference.cache
+C:\Users\rafih\source\repos\StartupApp\StartupApp\obj\Debug\StartupApp.Form1.resources
+C:\Users\rafih\source\repos\StartupApp\StartupApp\obj\Debug\StartupApp.Properties.Resources.resources
+C:\Users\rafih\source\repos\StartupApp\StartupApp\obj\Debug\StartupApp.csproj.GenerateResource.cache
+C:\Users\rafih\source\repos\StartupApp\StartupApp\obj\Debug\StartupApp.csproj.CoreCompileInputs.cache
+C:\Users\rafih\source\repos\StartupApp\StartupApp\obj\Debug\StartupApp.exe
+C:\Users\rafih\source\repos\StartupApp\StartupApp\obj\Debug\StartupApp.pdb

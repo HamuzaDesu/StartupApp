@@ -13,7 +13,8 @@ namespace StartupApp
 {
     public partial class Form1 : Form
     {
-        Control[] panels = new Control[4];
+        Panel[] panels = new Panel[4];
+        
 
         public Form1()
         {
@@ -25,14 +26,13 @@ namespace StartupApp
             this.BackColor = Color.White;
 
             //this.TopMost = true;
+
+            // SWAP TWO LINES AROUND TO SHOR OR HIDE TASKBAR
+
             this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
 
-
-            // Panel visibility
-            a.Visible = true;
-            a.BackColor = Color.Transparent;
-            //studyPanel.Visible = false;
+            MaximizeBox = false;
 
             // get bgImage from app.config and set as BG
             try
@@ -57,12 +57,14 @@ namespace StartupApp
             foreach (Panel panel in panels)
             {
                 panel.Visible = false;
-                panel.BackColor = Color.White;
+                panel.BackColor = Color.Transparent;
+                panel.BorderStyle = BorderStyle.None;
+                panel.Size = new Size(600, 400);
+                panel.Location = new Point(ClientSize.Width /2 - panel.Size.Width / 2,
+                    ClientSize.Height / 2 - panel.Size.Height / 2) ;
             }
 
-            //// TRANSPARENT BG
-            //this.BackColor = Color.LimeGreen;
-            //this.TransparencyKey = Color.LimeGreen;            
+            clockTimer.Start();
         }
 
         private void settingsButton_Click(object sender, EventArgs e)
@@ -117,6 +119,12 @@ namespace StartupApp
                 panel.Visible = false;
             }
             gamePanel.Visible = true;
+        }
+
+        private void clockTimer_Tick(object sender, EventArgs e)
+        {
+            string time = DateTime.Now.TimeOfDay.ToString();
+            clockLabel.Text = time.Substring(0, 8);
         }
     }
 }

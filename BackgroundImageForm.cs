@@ -32,6 +32,7 @@ namespace StartupApp
             this.TopMost = true;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
+            this.CenterToScreen();
         }
 
         private void removeImageButton_Click(object sender, EventArgs e)
@@ -48,14 +49,6 @@ namespace StartupApp
 
                 if (dialogue.ShowDialog() == DialogResult.OK)
                 {
-                    string nom = "";
-                    foreach(var item in ConfigurationManager.AppSettings)
-                    {
-                        nom += $"{item}, {ConfigurationManager.AppSettings[(string) item]}\n";
-                    }
-                    MessageBox.Show(nom);
-
-
                     Bitmap image = new Bitmap(dialogue.FileName);
 
                     // add image to app.config
